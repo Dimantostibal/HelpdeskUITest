@@ -1,5 +1,9 @@
 package pages;
 
-public class TicketsPage extends AbstractPage {
+import org.openqa.selenium.WebDriver;
 
+public class TicketsPage extends AbstractPage {
+    public TicketsPage(WebDriver driver) {
+        super(driver);
+    }
 }
