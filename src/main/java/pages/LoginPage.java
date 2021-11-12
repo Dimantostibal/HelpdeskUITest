@@ -26,7 +26,4 @@ public class LoginPage extends AbstractPage {
         this.password.sendKeys(password);
         this.login.click();
     }
-
-
-
 }

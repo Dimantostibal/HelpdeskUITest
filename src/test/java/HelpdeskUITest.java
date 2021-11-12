@@ -63,10 +63,10 @@ public class HelpdeskUITest {
         List<WebElement> elements = driver.findElements(By.xpath("//td[following-sibling::td][6]"));
         List<WebElement> el = driver.findElements(By.xpath("//div[contains(@class,'tickettitle')]/*[1]"));
 
-        for (int i = 0; i < elements.size();) {
+        for (int i = 0; i < elements.size(); ) {
             String webElement;
             webElement = elements.get(i).getText();
-            if (!webElement.contains(email)){
+            if (!webElement.contains(email)) {
                 i++;
             } else {
                 el.get(i).click();
@@ -83,7 +83,6 @@ public class HelpdeskUITest {
         // Проверяем, что нашли нужный тикер
         Assert.assertEquals("Email не совпадает", email, elemEmeil.getText());
         Assert.assertEquals("Описание не совпадает", description, elemDescription.getText());
-
 
         //Закрываем текущее окно браузера
         driver.close();
