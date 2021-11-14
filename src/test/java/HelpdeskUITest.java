@@ -1,3 +1,4 @@
+import io.qameta.allure.*;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -28,10 +29,13 @@ public class HelpdeskUITest {
     }
 
     @Test
+    @Story("Тест Helpdesk")
+    @Description(value = "Тест проверяет создание тикера в Helpdesk")
+    @Owner(value = "Еськов Дмитрий")
     public void createTicketTest() throws IOException {
         driver.get(System.getProperty("site.url"));
 
-        //Заполнение полей тикера
+        //Заполнение полей тикета
         TicketsPage ticketsPage = new TicketsPage(driver);
         ticketsPage.createTicket();
 

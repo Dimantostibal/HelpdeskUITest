@@ -1,5 +1,6 @@
 package pages;
 
+import io.qameta.allure.Step;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -15,11 +16,12 @@ public class OpenedTicket extends AbstractPage {
         super(driver);
     }
 
+    @Step("Проверка полей тикета на эквивалентность введеным при создании")
     public void compareTickerFields() {
         System.out.println(elemEmeil.getText());
         System.out.println(elemDescription.getText());
 
-        // Проверяем, что нашли нужный тикер
+        // Проверяем, что нашли нужный тикет
         Assert.assertEquals(getEmailAddress(), elemEmeil.getText(), "Email не совпадает");
         Assert.assertEquals(getTicketDescription(), elemDescription.getText(), "Описание не совпадает");
     }
