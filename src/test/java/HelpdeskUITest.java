@@ -18,6 +18,7 @@ public class HelpdeskUITest {
     public void setup() throws IOException {
         // Читаем конфигурационный файл в System.properties
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("config.properties"));
+        System.getProperties().load(ClassLoader.getSystemResourceAsStream("user.properties"));
         // Создание экземпляра драйвера
         driver = new ChromeDriver();
         // Устанавливаем размер окна браузера, как максимально возможный
@@ -41,7 +42,6 @@ public class HelpdeskUITest {
 
         //Чтение данных учетной записи пользователя из user.properties в System.properties
         LoginPage loginPage = new LoginPage(driver);
-        System.getProperties().load(ClassLoader.getSystemResourceAsStream("user.properties"));
         loginPage.login(System.getProperty("user"), System.getProperty("pass"));
 
         MainPage mainPage = new MainPage(driver);
