@@ -18,6 +18,7 @@ public class HelpdeskUITest {
     public void setup() throws IOException {
         // Читаем конфигурационный файл в System.properties
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("config.properties"));
+        // Чтение данных учетной записи пользователя из user.properties в System.properties
         System.getProperties().load(ClassLoader.getSystemResourceAsStream("user.properties"));
         // Создание экземпляра драйвера
         driver = new ChromeDriver();
@@ -40,10 +41,11 @@ public class HelpdeskUITest {
         TicketsPage ticketsPage = new TicketsPage(driver);
         ticketsPage.createTicket();
 
-        //Чтение данных учетной записи пользователя из user.properties в System.properties
+        //Авторизация
         LoginPage loginPage = new LoginPage(driver);
         loginPage.login(System.getProperty("user"), System.getProperty("pass"));
 
+        //Поиск созданного тикета
         MainPage mainPage = new MainPage(driver);
         mainPage.searchTickerTest();
 
